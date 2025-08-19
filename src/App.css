@@ -31,11 +31,18 @@
 }
 
 .hero {
+  position: relative;
   border-bottom: 1px solid var(--border);
 }
 
+
+
 .hero__inner {
   padding: 96px 0 56px;
+}
+
+.hero__text {
+  max-width: 680px;
 }
 
 .eyebrow {
@@ -229,11 +236,102 @@
 
 .icon-btn:hover { transform: translateY(-2px); }
 
+.stack-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 6px;
+  align-items: center;
+}
+
+.tech-icon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tech-icon:hover { transform: translateY(-2px); opacity: 1; }
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stack-card {
+  background: linear-gradient(180deg, #121a2a, #0f1626);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.stack-card__title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.stack-card__icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stack-icon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.stack-icon:hover { transform: translateY(-2px); opacity: 1; }
+
+.stack-inline {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+  margin-top: 12px;
+}
+
+.stack-inline__icons {
+  display: grid;
+  grid-template-columns: repeat(10, 28px);
+  grid-auto-rows: 28px;
+  gap: 10px 12px;
+  align-items: center;
+  max-width: 560px;
+}
+
+.stack-inline__label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+@media (max-width: 1200px) {
+  .stack-inline__icons { grid-template-columns: repeat(8, 28px); max-width: 480px; }
+}
+
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;
   }
   .hero__title { font-size: 36px; }
+  .stack-inline { grid-template-columns: 1fr; }
+  .stack-inline__icons { grid-template-columns: repeat(7, 28px); max-width: 440px; }
+}
+
+@media (max-width: 760px) {
+  .stack-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -241,4 +339,5 @@
     flex-direction: column;
     gap: 8px;
   }
+  .stack-inline__icons { grid-template-columns: repeat(6, 28px); max-width: 380px; }
 }
